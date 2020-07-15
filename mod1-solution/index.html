@@ -9,8 +9,18 @@
 <body ng-app="LunchCheck">
   <div ng-controller="LunchCheckController">
     <div>
-      <input type="text" name="lunch" size="50px" ng-model="lunchList">
+      <form>
+        <textarea name="lunch" rows="8" cols="30" ng-model="lunchList">
+        </textarea>
+      </form>
     </div>
+    <br>
+    <div>
+      <button type="button" ng-click="checker()">Check If Too Much</button>
+    </div>
+    <div>
+      <p style="font-family:'Arial'; font-size:15px;">{{output}}</p>
+    <div>
   </div>
 </body>
 </html>

@@ -1,7 +1,9 @@
 (function(){
   'use strict';
   angular.module('LunchCheck',[])
-  .controller('LunchCheckController',function($scope){
+  .controller('LunchCheckController',LunchCheckController);
+  LunchCheckController.$inject =['$scope'];
+  function LunchCheckController($scope){
     $scope.checker = function(){
       $scope.output= "Please enter data first";
       if ($scope.lunchList.length == 0){
@@ -17,5 +19,5 @@
         }
       }
     }
-  });
+  }
 })();

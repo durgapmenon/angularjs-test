@@ -5,30 +5,31 @@
       <script src="angular.min.js"></script>
       <script src="app.js"></script>
       <link rel="stylesheet" type="text/css" href="styles.css">
-      <title>Check Off Shopping List</title>
+      <title>Check Off Your Shopping List</title>
    </head>
    <body ng-app="ShoppingListCheckOff">
-      <h3>Check off your shopping list</h3>
-      <div ng-controller="ToBuyController as notBought">
-         <div>
-            <ul>
+      <h3>To Buy</h3>
+      <div ng-controller='ToBuyController as notBought'>
+         <div ng-hide="notBought.isEmpty();" class="empty">
+            <ol>
                <li ng-repeat="item in notBought.items">
                   Buy {{ item.quantity }} {{ item.name }}
                   <button ng-click="notBought.markAsBought($index);">Bought</button>
                </li>
-            </ul>
+            </ol>
          </div>
-         <div ng-show="notBought.empty" class="empty">{{ notBought.display }}</div>
+         <div ng-show="notBought.isEmpty();" class="empty">{{ notBought.display }}</div>
       </div>
-      <div ng-controller="AlreadyBoughtController as alreadyBought">
-         <div>
+      <h3>Already Bought</h3>
+      <div ng-controller='AlreadyBoughtController as alreadyBought'>
+         <div ng-hide="alreadyBought.isEmpty();" class="empty">
             <ol>
                <li ng-repeat="item in alreadyBought.items">
                   Bought {{ item.quantity }} {{ item.name }}
                </li>
             </ol>
          </div>
-         <div ng-show="alreadyBought.empty" class="empty">{{ alreadyBought.display }}</div>
+         <div ng-show="alreadyBought.isEmpty();" class="empty">{{ alreadyBought.display }}</div>
       </div>
    </body>
 </html>
